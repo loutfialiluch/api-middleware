@@ -34,6 +34,11 @@ app.get('/', (req, res) => {
 
 })
 
+
+app.get('/ip', (req, res) => {
+    res.send(req.ip);
+})
+
 app.post('/', async (req,res) => {
     const {body} = req;
     try {
