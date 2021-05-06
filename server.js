@@ -17,12 +17,15 @@ let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
 
 const app = express();
 
+
+
 const PORT = process.env.PORT || 5000;
 
 //Middlewares
 app.use(morgan('combined', { stream: accessLogStream }))
 app.use(express.json());
 app.use(cors());
+app.enable("trust proxy");
 
 
 
@@ -50,10 +53,6 @@ app.post('/', async (req,res) => {
             errorMessage : "Error Middleware"
         }).status(500);
     }
-
-
-
-
 })
 
 
