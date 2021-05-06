@@ -37,9 +37,8 @@ app.get('/', (req, res) => {
 app.post('/', async (req,res) => {
     const {body} = req;
     try {
-        // const {data, status} = await axios.post('https://localhost:8085/orange', body);
-        // res.json(data).status(status);
-        res.send("Ok");
+        const {data, status} = await axios.post('https://80faf6c3ef02.ngrok.io/orange', body);
+        res.json(data).status(status);
     } catch (error) {
         res.json({
             success : false,
